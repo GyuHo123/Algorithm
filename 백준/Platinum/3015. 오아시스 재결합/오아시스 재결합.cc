@@ -19,23 +19,21 @@ int main() {
     for (int i = 1; i <= n; i++) {
         cin >> height;
         p.first = height, p.second = 1;
-        while(!stk.empty() && stk.top().first < p.first){
+        while (!stk.empty() && stk.top().first < p.first) {
             cnt += stk.top().second;
             stk.pop();
         }
-        if (stk.empty()) {
-            stk.push(p);
+        if (!stk.empty()) {
+            if (stk.top().first > p.first) {
+                cnt++;
+            } else if (stk.top().first == p.first) {
+                p.second += stk.top().second;
+                cnt += stk.top().second;
+                stk.pop();
+                if (!stk.empty()) cnt++;
+            }
         }
-        else if (stk.top().first > p.first) {
-            stk.push(p);
-            cnt++;
-        } else if (stk.top().first == p.first) {
-            p.second += stk.top().second;
-            cnt += stk.top().second;
-            stk.pop();
-            if(!stk.empty()) cnt++;
-            stk.push(p);
-        }
+        stk.push(p);
     }
     cout << cnt;
 }
