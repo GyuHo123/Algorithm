@@ -8,7 +8,7 @@
 
 using namespace std;
 
-int n, dp[MAXN][4], tempRes; //dp[i][0] = "i번째 줄에서의 사자를 배치할 수 있는 모든 경우의 수"
+int n, dp[MAXN][4]; //dp[i][0] = "i번째 줄에서의 사자를 배치할 수 있는 모든 경우의 수"
 
 int main() {
     ios::sync_with_stdio(0);
@@ -22,7 +22,6 @@ int main() {
     dp[1][0] = 3;
 
     loop(i, 2, n){
-        tempRes = 0;
         dp[i][1] = (dp[i - 1][1] + dp[i - 1][2] + dp[i - 1][3]) % Mod;
         dp[i][2] = (dp[i - 1][1] + dp[i - 1][3]) % Mod;
         dp[i][3] = (dp[i - 1][1] + dp[i - 1][2]) % Mod;
