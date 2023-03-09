@@ -7,13 +7,12 @@
 
 using namespace std;
 
-// dp[i] = i를 제곱수들의 합으로 표현할 때 그 항의 최소개수 // dp[j
+int n, dp[MAXN];// dp[i] = i를 제곱수들의 합으로 표현할 때 그 항의 최소개수 // dp[j
 
 int main(){
     ios::sync_with_stdio(0);
     cin.tie(0);
     
-    int n, dp[MAXN];
     cin >> n;
     dp[1] = 1;
     loop(i, 1, n)
