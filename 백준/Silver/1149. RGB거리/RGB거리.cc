@@ -1,15 +1,13 @@
-#include<iostream>
-#include<stack>
+#include <bits/stdc++.h>
 #define endl '\n'
 #define loop(i, s, n) for(int i = s; i <= n; i++)
 #define LOOP(i, s, n) for(int i = s; i < n; i++)
 #define ll long long
 #define MAXN 1001
-#define Mod 1000000000
 
 using namespace std;
 
-ll n, k, arr[MAXN][4], dp[MAXN][4]; //dp[i][j] = "i번째 집을 j번째 색으로 칠했을 때의 누적 비용"
+ll n, arr[MAXN][4], dp[MAXN][4]; //dp[i][j] = "i번째 집을 j번째 색으로 칠했을 때의 누적 비용"
 
 int main(){
     ios::sync_with_stdio(0);
