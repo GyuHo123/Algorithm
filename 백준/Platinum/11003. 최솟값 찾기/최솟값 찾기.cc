@@ -12,8 +12,8 @@ struct p{
 };
 
 int n, l;
-deque<p> dq;
 p p1;
+deque<p> dq;
 
 int main(){
     ios::sync_with_stdio(0);
@@ -23,11 +23,11 @@ int main(){
 
     loop(i, 1, n){
         int tempIdx;
-        tempIdx = i - l + 1;
+        tempIdx = i - l;
         cin >> p1.num;
         p1.idx = i;
         if(!dq.empty())
-            if(tempIdx > dq.front().idx) dq.pop_front(); // if(l == 3 i가 4일 때부터 하나씩 가장 앞의 것이 팝이 되어야 이 때 식을 유추해보면 i - l + 1(4 - 3 + 1)
+            if(tempIdx == dq.front().idx) dq.pop_front(); // if(l == 3 i가 4일 때부터 하나씩 가장 앞의 것이 팝이 되어야 이 때 식을 유추해보면 i - l(4 - 3 == 1)
         while(true){
             if(dq.empty() || p1.num > dq.back().num) break; // dq가 비었으면 pop 불가, 새로 입력 받는 수가 그 이전 것보다 큰 상황에서 팝을 하면 최소를 구할 수 없음
             dq.pop_back(); // 새로 입력 받은 수보다 큰 수는 최소로 의미가 X
