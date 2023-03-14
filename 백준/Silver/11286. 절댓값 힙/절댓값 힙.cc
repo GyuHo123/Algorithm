@@ -11,7 +11,7 @@ class cmp{
 public:
     bool operator()(int a, int b){
         if(abs(a) == abs(b)) return a > b;
-        else return abs(a) > abs(b);
+        return abs(a) > abs(b);
     }
 
 };
