@@ -7,26 +7,24 @@
 
 using namespace std;
 
-
+int negative = 0, sum = 0;
+string str, str1;
 
 int main(){
     ios::sync_with_stdio(0);
     cin.tie(0);
-    int negative = 0, sum = 0;
-    string str, str1;
+
     cin >> str;
 
     for(auto x : str) {
-
         if (isdigit(x)) {
             str1 += x;
-        } else if (!isdigit(x) || str[str.size() - 1] == x) {
+        } else if (!isdigit(x)) {
             if (negative) sum += -1 * stoi(str1);
             else sum += stoi(str1);
             str1.clear();
         }
         if (x == '-') negative = 1;
-
     }
     if(str.empty()){
         cout << str1; exit(0);
