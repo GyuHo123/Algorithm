@@ -24,7 +24,7 @@ void bfs(int x, int y){
     q.push({x, y}); visited[x][y] = 1;
     while(!q.empty()){
         p t = q.front(); q.pop();
-        for (int i = 0; i < 4; i++) {
+        loop(i, 0, 3) {
             int nx = t.x + dx[i], ny = t.y + dy[i];
             if(isRange(nx, ny) && !visited[nx][ny] && arr[nx][ny] == arr[x][y]){
                 q.push({nx, ny});
