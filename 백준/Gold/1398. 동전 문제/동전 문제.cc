@@ -17,7 +17,7 @@ int main() {
     
     loop(i, 1, 100) { // 전처리
         dp[i] = dp[i - 1] + 1;
-        if(i >= 10) dp[i] = min(dp[i], dp[i - 10] + 1);
+        if(i >= 10) dp[i] = dp[i - 10] + 1;
         if(i >= 25) dp[i] = min(dp[i], dp[i - 25] + 1);
     }
     
