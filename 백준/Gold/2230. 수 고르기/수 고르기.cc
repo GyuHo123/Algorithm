@@ -7,27 +7,24 @@
 
 using namespace std;
 
-int n, m, s, e, arr[MAXN];
+int n, m, arr[MAXN], en, ans = INT_MAX;
 
 int main(){
     ios::sync_with_stdio(0);
     cin.tie(0);
 
     cin >> n >> m;
-    int ans = 2000000000;
 
     LOOP(i, 0, n){
         cin >> arr[i];
     }
 
     sort(arr, arr + n);
-    while(s <= e && e < n){
-        int temp = arr[e] - arr[s];
-        if(temp < m) e++;
-        else{
-            ans = min(ans, temp);
-            s++;
-        }
+
+    LOOP(i, 0, n){
+        while(en < n && arr[en] - arr[i] < m) en++;
+        if(en == n) break;
+        ans = min(ans, arr[en] - arr[i]);
     }
-    cout << ans << endl;
+    cout << ans;
 }
