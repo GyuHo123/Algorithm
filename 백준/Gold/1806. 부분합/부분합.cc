@@ -7,7 +7,7 @@
 
 using namespace std;
 
-int n, s, start, last, ans = 100000000, arr[MAXN];
+int n, s, st, en, ans = INT_MAX, sum, arr[MAXN];
 
 int main(){
     ios::sync_with_stdio(0);
@@ -18,15 +18,11 @@ int main(){
     LOOP(i, 0, n){
         cin >> arr[i];
     }
-    int temp = 0;
-    while(start <= last){
-        if(temp >= s){
-            ans = min(ans, last - start);
-            temp -= arr[start++];
-        }
-        else if(last == n) break;
-        else temp += arr[last++];
+    LOOP(st, 0, n){
+        while(en <= n && sum < s) sum += arr[en++];
+        if(sum >= s) ans = min(ans, en - st);
+        sum -= arr[st];
     }
-    if(ans == 100000000) cout << 0 << endl;
+    if(ans == INT_MAX) cout << 0 << endl;
     else cout << ans << endl;
 }
