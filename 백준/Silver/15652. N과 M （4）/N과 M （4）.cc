@@ -1,24 +1,28 @@
 #include<bits/stdc++.h>
-using namespace std;
-
+#define endl '\n'
+#define loop(i, s, n) for(int i = s; i <= n; i++)
 #define MAXN 9
+
+using namespace std;
 
 int res[MAXN];
 int m, n;
 
-void dfs(int start, int depth) {
-    if (depth == n) {
-        for (int i = 0; i < n; i++) cout << res[i] << " ";
+void dfs(int st, int k){
+    if(k == n){
+        loop(i, 0, n - 1)
+            cout << res[i] << " ";
         cout << endl;
         return;
     }
-    for (int i = start; i <= m; i++) {
-        res[depth] = i;
-        dfs(i, depth + 1);
+    else{
+        loop(i, st, m){
+            res[k] = i;
+            dfs(i, k + 1);
+        }
     }
 }
-
-int main() {
+int main(){
     ios::sync_with_stdio(0);
     cin.tie(0);
     
