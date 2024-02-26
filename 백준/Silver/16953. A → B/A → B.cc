@@ -17,7 +17,7 @@ bool isRange(long long x){
     return 1 <= x && x <= 1e9; 
 }
 
-long long bfs(){
+int bfs(){
     queue<p> q;
     q.push({a, 0});
     visited[a] = 1;
