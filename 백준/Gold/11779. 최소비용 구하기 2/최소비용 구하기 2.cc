@@ -51,9 +51,8 @@ int main(){
         t1 = pre[t1];
     }
     cities.push_back(st);
-    reverse(cities.begin(), cities.end());
     cout << cities.size() << endl;
-    for(auto t: cities){
-        cout << t << " ";
+    for(int i = cities.size() - 1; i >= 0; i--){
+        cout << cities[i] << " ";
     }
 }
