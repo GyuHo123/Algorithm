@@ -1,33 +1,32 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 #define endl '\n'
+#define loop(i, s, n) for(int i = s; i <= n; i++)
+#define MAXN 1001
 
 using namespace std;
 
-int maxRes, dp[1001], arr[1001];
+int n, arr[MAXN], dp[MAXN], max1;
 
-int main() {
+int main(){
     ios::sync_with_stdio(0);
     cin.tie(0);
-
-    int n;
 
     cin >> n;
 
     dp[1] = 1;
 
-    for(int i = 1; i <= n; i++){
+    loop(i, 1, n){
         cin >> arr[i];
-        for(int j = 1; j < i; j++){
-            if(arr[i] > arr[j]) {
-                maxRes = max(maxRes, dp[j]);
-            }
-        }
-        dp[i] = maxRes + 1;
-        maxRes = 0;
     }
-    for(int i = 1; i <= n; i++){
-        maxRes = max(maxRes, dp[i]);
-    }
-    cout << maxRes;
 
+    loop(i, 1, n){
+        loop(j, 1, i - 1){
+            if(arr[i] > arr[j]) max1 = max(max1, dp[j]);
+        }
+        dp[i] = max1 + 1;
+        max1 = 0;
+    }
+    loop(i, 1, n) max1 = max(max1, dp[i]);
+
+    cout << max1;
 }
