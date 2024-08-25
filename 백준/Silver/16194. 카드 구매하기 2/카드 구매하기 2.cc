@@ -1,28 +1,28 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 #define endl '\n'
+#define loop(i, s, n) for(int i = s; i <= n; i++)
+#define MAXN 1001
 
 using namespace std;
 
-int dp[10001];
-int weight[10001];
+int n, arr[MAXN], dp[MAXN]; //dp[n] = "n개의 카드를 갖기 위해 지불해야 하는 최소 금액"
 
-
-int main() {
+int main(){
     ios::sync_with_stdio(0);
     cin.tie(0);
 
-    int n;
-
     cin >> n;
 
-    for(int i = 1; i <= n; i++){
-        cin >> weight[i];
+    loop(i, 1, n){
+        cin >> arr[i];
+        dp[i] = INT_MAX;
     }
 
-    for(int i = 1; i <= n; i++){
-        dp[i] = weight[i];
-        for(int j = 1; j <= i; j++)
-        dp[i] = min(dp[i], dp[i - j] + weight[j]);
+    loop(i, 1, n){
+        loop(j, 1, i){
+            dp[i] = min(dp[i], dp[i - j] + arr[j]);
+        }
     }
+
     cout << dp[n];
 }
