@@ -25,7 +25,6 @@ void bfs(int x, int y){
         }
     }
     cnt++;
-    cout << cnt << endl;
 }
 
 int solution(int n, vector<vector<int>> computers) {
